@@ -2,6 +2,8 @@ import React, {useState} from "react"
 
 import Burger from "../../Components/Burger/Burger"
 import BuildControls from "../../Components/Burger/BuildControls/BuildControls"
+import Modal from "../../Components/GeneralUI/Modal/Modal"
+import OrderSummary from "../../Components/Burger/OrderSummary/OrderSummary"
 
 const INGREDIENT_PRICES = {
 
@@ -16,6 +18,7 @@ const BurgerBuilder = () => {
 
     const [ingredients, setIngredients] = useState({salad : 0, bacon : 0, cheese : 0, meat : 0})
     const [price, setPrice] = useState(4)
+    const [showModal, setShowModal] = useState(false)
 
     const addIngredient = type => {
         
@@ -59,9 +62,11 @@ const BurgerBuilder = () => {
 
         <React.Fragment>
 
+                <Modal show={showModal}><OrderSummary ingredients={ingredients}/></Modal>
+
                 <Burger ingredients={ingredients} />
 
-                <BuildControls currentIngredients={ingredients} ingredientAdded={(type)=> addIngredient(type)} ingredientRemoved={(type)=> {
+                <BuildControls showModal={()=> setShowModal(true)} price={price} currentIngredients={ingredients} ingredientAdded={(type)=> addIngredient(type)} ingredientRemoved={(type)=> {
 
                     if(ingredients[type] > 0){
 
