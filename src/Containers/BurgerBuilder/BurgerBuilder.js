@@ -62,7 +62,7 @@ const BurgerBuilder = () => {
 
         <React.Fragment>
 
-                <Modal show={showModal}><OrderSummary ingredients={ingredients}/></Modal>
+                <Modal show={showModal} clickOut={()=> setShowModal(false)}><OrderSummary price={price} ingredients={ingredients} onClickCancel={()=> setShowModal(false)} onClickConfirm={()=> alert("Lock arf")}/></Modal>
 
                 <Burger ingredients={ingredients} />
 
