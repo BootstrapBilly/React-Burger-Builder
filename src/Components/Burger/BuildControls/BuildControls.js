@@ -19,7 +19,7 @@ const BuildControls = props => {
 
         <div className={classes.BuildControls}>
 
-            {controls.map(control => <BuildControl key={control.label} label={control.label}/>)}
+            {controls.map(control => <BuildControl key={control.label} label={control.label} moreClicked={()=> props.ingredientAdded(control.type)} lessClicked={()=> props.ingredientRemoved(control.type)} currentIngredients={props.currentIngredients} type={control.type} />)}
 
         </div>
 

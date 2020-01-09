@@ -20,8 +20,6 @@ const Burger = props => {
 
     }, [])
 
-    console.log(transformedIngredientsKeys)
-
     return (
 
         <div className={classes.Burger}>
