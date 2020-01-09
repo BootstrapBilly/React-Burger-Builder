@@ -12,7 +12,13 @@ const Burger = props => {
         return [...Array(props.ingredients[key])].map((_, i) => {
            return <BurgerIngredient key={key + i} type={key} />
         })
+
     })
+    .reduce((initialArrayThisFunctionIsCalledOn, currentValOfThatInitialArray) => {
+
+        return initialArrayThisFunctionIsCalledOn.concat(currentValOfThatInitialArray)
+
+    }, [])
 
     console.log(transformedIngredientsKeys)
 
@@ -21,7 +27,9 @@ const Burger = props => {
         <div className={classes.Burger}>
 
             <BurgerIngredient type="bread-top" />
-            {transformedIngredientsKeys}
+
+            {transformedIngredientsKeys.length < 1 ? <p>Add some ingredients</p> : transformedIngredientsKeys}
+
             <BurgerIngredient type="bread-bottom" />
 
         </div>

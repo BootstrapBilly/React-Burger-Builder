@@ -1,25 +1,25 @@
 import React, {useState} from "react"
 
 import Burger from "../../Components/Burger/Burger"
+import BuildControls from "../../Components/Burger/BuildControls/BuildControls"
 
 const BurgerBuilder = () => {
 
-    const [ingredients, setIngredients] = useState({salad : 1, bacon : 1, cheese : 2, meat : 2})
+    const [ingredients] = useState({salad : 0, bacon : 0, cheese : 0, meat : 0})
 
     return (
 
         <React.Fragment>
 
-            <div>
+     
 
                 <Burger ingredients={ingredients} />
 
-            </div>
+     
 
-            <div>
 
-                Build controls
-            </div>
+                <BuildControls/>
+
             
         </React.Fragment>
 
